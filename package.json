@@ -1,8 +1,8 @@
 {
-  "name": "lunr-index-build",
-  "version": "0.0.1",
-  "author": "Oliver Nightingale",
-  "description": "Simple command line tool for building lunr.js indexes",
+  "name": "lunr-index-build-silent",
+  "version": "0.0.2",
+  "author": "Christophe Perier",
+  "description": "Simple command line tool for building lunr.js indexes with optional progressbar",
   "keywords": [
     "cli",
     "lunr"
@@ -13,7 +13,7 @@
     "progress": "0.1.x"
   },
   "bin": {
-    "lunr-generator": "./bin/lunr-index-build"
+    "lunr-generator-silent": "./bin/lunr-index-build-silent"
   },
   "readmeFilename": "README.md"
 }
