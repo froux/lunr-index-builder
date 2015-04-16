@@ -1,6 +1,6 @@
 {
   "name": "lunr-index-build-silent",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Christophe Perier",
   "description": "Simple command line tool for building lunr.js indexes with optional progressbar",
   "keywords": [
@@ -9,11 +9,26 @@
   ],
   "dependencies": {
     "lunr": ">= 0.3.0",
-    "optimist": "0.4.x",
+    "minimist": "1.1.x",
     "progress": "0.1.x"
   },
   "bin": {
     "lunr-generator-silent": "./bin/lunr-index-build-silent"
   },
-  "readmeFilename": "README.md"
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/froux/lunr-index-builder.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/froux/lunr-index-builder/issues"
+  },
+  "homepage": "https://github.com/froux/lunr-index-builder"
 }

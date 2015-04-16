@@ -1,19 +1,15 @@
 #!/usr/local/bin/node
 
 var lunr = require('lunr'),
-    optimist = require('optimist'),
+    minimist = require('minimist'),
     ProgressBar = require('progress')
 
-var argv = optimist
-    .usage('Generates a lunr.js index.\n\n  lunr-index-build-silent --with-progressbar -r id -f title:10 -f body < data.json > index.json')
-    .demand('f')
-    .alias('f', 'field')
-    .describe('f', 'Specify a field to index')
-    .alias('with-progressbar')
-    .describe('with-progressbar', 'Use progressbar during index generation')
-    .alias('r', 'ref')
-    .describe('r', 'Specify the field that will be the document reference')
-    .argv
+var argv = require('minimist')(process.argv.slice(2));
+
+
+process.stdout.write(JSON.stringify(argv));
+
+//lunr-index-build-silent --with-progressbar -r id -f title:10 -f body < data.json > index.json'
 
 var arrayWrap = function (obj) {
     if (Array.isArray(obj)) return obj
@@ -22,9 +18,9 @@ var arrayWrap = function (obj) {
 }
 
 var idx = lunr(function () {
-    if (argv.ref) this.ref(argv.ref)
+    if (argv.r) this.ref(argv.r)
 
-    arrayWrap(argv.field).forEach(function (fieldString) {
+    arrayWrap(argv.f).forEach(function (fieldString) {
         var fieldParts = fieldString.split(':'),
             fieldName = fieldParts[0],
             fieldBoost = fieldParts[1] ? parseInt(fieldParts[1], 10) : 1
@@ -71,4 +67,5 @@ process.stdin.on('end', function () {
     if (argv["with-progressbar"]) {
         process.stderr.write('\n')
     }
+    process.exit(0)
 })
