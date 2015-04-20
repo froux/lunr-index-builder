@@ -6,9 +6,6 @@ var lunr = require('lunr'),
 
 var argv = require('minimist')(process.argv.slice(2));
 
-
-process.stdout.write(JSON.stringify(argv));
-
 //lunr-index-build-silent --with-progressbar -r id -f title:10 -f body < data.json > index.json'
 
 var arrayWrap = function (obj) {

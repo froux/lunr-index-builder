@@ -1,22 +1,23 @@
-# lunr Index Builder
+# lunr Index Builder with optional progressbar
 
 A simple command line tool for building lunr indexes.
 
 ## Installation
 
-    npm install lunr-index-build
+    npm install lunr-index-build-silent
 
 ## Usage
 
     Generates a lunr.js index.
 
-      lunr-index-build -r id -f title:10 -f body < data.json > index.json
+      lunr-index-build-silent -r id -f title:10 -f body < data.json > index.json
 
     Options:
-      -f, --field  Specify a field to index                               [required]
-      -r, --ref    Specify the field that will be the document reference
+      -f,  Specify a field to index                               [required]
+      -r,  Specify the field that will be the document reference
+      --with-progressbar : with progressbar
 
-`lunr-index-builder` reads your data from stdin and outputs a built index on stdout. You need to specify some fields to index from your input data and, optionally the ref for the documents. These options map directly to those of [lunr.js](http://lunrjs.com) itself so see that documentation for more details.
+`lunr-index-builder-silent` reads your data from stdin and outputs a built index on stdout. You need to specify some fields to index from your input data and, optionally the ref for the documents. These options map directly to those of [lunr.js](http://lunrjs.com) itself so see that documentation for more details.
 
 The input is expected to be valid JSON, with an array of document objects, e.g
 
@@ -30,7 +31,7 @@ The input is expected to be valid JSON, with an array of document objects, e.g
 
 ### Example
 
-    $ lunr-index-builder --field title:10 --field tags:100 --field body --ref id < data.json > index.json
+    $ lunr-generator-silent -f title:10 -f tags:100 -f body -r id < data.json > index.json
 
 
 
